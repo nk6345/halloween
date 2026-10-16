@@ -548,12 +548,6 @@
     }
 
     .fineprint strong { color: #f0dfbd; }
-    .privacy {
-      color: var(--green);
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
     .homepage-promo {
       display: grid;
       grid-template-columns: auto minmax(0, 1fr) auto;
@@ -762,8 +756,7 @@
     </section>
 
     <div class="fineprint">
-      <span><strong data-i18n="orientation-title">Hinweis zur Orientierung:</strong> <span data-i18n="orientation-text">Mattweg (ohne Hausnummer) sowie Blatt D2 und B1 sind nur ungefähre Kartenpunkte, keine genaue Haustüradresse. Bitte diese Angaben vor dem Anlass bestätigen. Nur für den internen Anlassgebrauch weitergeben.</span></span>
-      <span class="privacy" data-i18n="privacy">🔒 E-Mail-Adressen und Telefonnummern werden nicht angezeigt.</span>
+      <span><strong data-i18n="orientation-title">Hinweis zur Orientierung:</strong> <span data-i18n="orientation-text">Einzelne Standorte sind ungefähr markiert. Der Link ist öffentlich zugänglich und wird nach dem Anlass deaktiviert.</span></span>
     </div>
 
     <section class="homepage-promo" aria-labelledby="homepage-title">
@@ -803,8 +796,7 @@
         "search-label": "Name, Strasse oder Hinweis suchen",
         "search-placeholder": "Name, Strasse oder Hinweis suchen…",
         "orientation-title": "Hinweis:",
-        "orientation-text": "Einzelne Standorte sind ungefähr markiert. Bitte vor dem Anlass prüfen und die Karte nur mit Teilnehmenden teilen.",
-        privacy: "🔒 E-Mail-Adressen und Telefonnummern werden nicht angezeigt.",
+        "orientation-text": "Einzelne Standorte sind ungefähr markiert. Der Link ist öffentlich zugänglich und wird nach dem Anlass deaktiviert.",
         "homepage-title": "Lust auf mehr?",
         "homepage-intro": "Weitere tolle Anlässe vom Familientreff Neuheim findest du auf unserer Homepage.",
         "homepage-link": "Alle Veranstaltungen entdecken",
@@ -846,8 +838,7 @@
         "search-label": "Search name, street or note",
         "search-placeholder": "Search name, street or note…",
         "orientation-title": "Note:",
-        "orientation-text": "Some locations are approximate. Please check before the event and share the map with participants only.",
-        privacy: "🔒 Email addresses and phone numbers are not displayed.",
+        "orientation-text": "Some locations are approximate. The link is publicly accessible and will be taken offline after the event.",
         "homepage-title": "Want more family fun?",
         "homepage-intro": "Discover more great events by Familientreff Neuheim on our website.",
         "homepage-link": "Explore all events",
@@ -871,21 +862,21 @@
     const languageToggle = document.getElementById("language-toggle");
 
     const hosts = [
-      { id: 1, names: ["Sabrina Peter"], address: "Neuhofstrasse 17", lat: 47.2011264, lon: 8.5730251 },
-      { id: 2, names: ["Bettina Lang"], address: "Windenweg 9", lat: 47.2059341, lon: 8.5775462 },
-      { id: 3, names: ["Kathrin Hoffmann"], address: "Windenweg 10", lat: 47.2062249, lon: 8.5787730 },
-      { id: 4, names: ["Maren Johnson-Harmsen"], address: "Windenboden 14", lat: 47.2066006, lon: 8.5793563 },
-      { id: 5, names: ["Giovanna Fochini"], address: "Hinterburgstrasse 46", lat: 47.1959340, lon: 8.5715621 },
-      { id: 6, names: ["Anisha + Ayan Tandon"], address: "Hinterburgstrasse 2", lat: 47.2000082, lon: 8.5732186 },
-      { id: 7, names: ["Oskar Ladde", "Bastian Ladde"], address: "Lindenweg 2", lat: 47.2051299, lon: 8.5740697 },
-      { id: 8, names: ["Gabriel Vinci"], address: "Zehndermattstrasse 7", lat: 47.2039859, lon: 8.5740270 },
-      { id: 9, names: ["Dana Tribaldos"], address: "Mattweg, ohne Hausnummer", addressEn: "Mattweg, no house number", lat: 47.2068387, lon: 8.5744078, approximate: true, note: "Die Anmeldung enthält keine Hausnummer; der Kartenpunkt liegt nur ungefähr auf dem Mattweg.", noteEn: "The registration has no house number; the map point is only approximate along Mattweg." },
-      { id: 10, names: ["Familie Guettinger"], namesEn: ["The Guettinger family"], address: "Neuhofstrasse 36", lat: 47.2020514, lon: 8.5730349 },
-      { id: 11, names: ["Thomas & Agnes Riffel"], address: "Blatt D2, Neuheim", addressEn: "Map sheet D2, Neuheim", lat: 47.2046460, lon: 8.5751134, approximate: true, note: "Öffnungszeit laut Anmeldung: Samstag, 31. Oktober, 17:30–20:00 Uhr. Die Blattangabe erlaubt keine genaue Haustür-Markierung; der Punkt dient nur der Orientierung im Dorf.", noteEn: "Open according to the registration: Saturday, 31 October, 5:30–8:00 pm. The map-sheet reference is not an exact door location; the point is only for general orientation." },
-      { id: 12, names: ["Simon Meier"], address: "Neuhofstrasse 25", lat: 47.2002407, lon: 8.5714727, note: "Am Eingang klingeln, mit dem Aufzug in den 3. Stock fahren und bei «Meier» klingeln.", noteEn: "Ring the doorbell at the entrance, take the elevator to the third floor, and ring «Meier»." },
-      { id: 13, names: ["Karin Wesenauer"], address: "Neuhofstrasse 54", lat: 47.2017249, lon: 8.5726713 },
-      { id: 14, names: ["Sonja Bucher"], address: "Neuhofstrasse 52", lat: 47.2017128, lon: 8.5728053 },
-      { id: 15, names: ["Mathilde Balduzzi"], address: "Blatt B1, Neuheim", addressEn: "Map sheet B1, Neuheim", lat: 47.2048, lon: 8.5754, approximate: true, note: "Die Blattangabe erlaubt keine genaue Haustür-Markierung; der Punkt dient nur der Orientierung im Dorf.", noteEn: "The map-sheet reference is not an exact door location; the point is only for general orientation." }
+      { id: 1, names: ["Peter"], address: "Neuhofstrasse 17", lat: 47.2011264, lon: 8.5730251 },
+      { id: 2, names: ["Lang"], address: "Windenweg 9", lat: 47.2059341, lon: 8.5775462 },
+      { id: 3, names: ["Hoffmann"], address: "Windenweg 10", lat: 47.2062249, lon: 8.5787730 },
+      { id: 4, names: ["Johnson-Harmsen"], address: "Windenboden 14", lat: 47.2066006, lon: 8.5793563 },
+      { id: 5, names: ["Fochini"], address: "Hinterburgstrasse 46", lat: 47.1959340, lon: 8.5715621 },
+      { id: 6, names: ["Tandon"], address: "Hinterburgstrasse 2", lat: 47.2000082, lon: 8.5732186 },
+      { id: 7, names: ["Ladde"], address: "Lindenweg 2", lat: 47.2051299, lon: 8.5740697, shared: true },
+      { id: 8, names: ["Vinci"], address: "Zehndermattstrasse 7", lat: 47.2039859, lon: 8.5740270 },
+      { id: 9, names: ["Tribaldos"], address: "Mattweg, ohne Hausnummer", addressEn: "Mattweg, no house number", lat: 47.2068387, lon: 8.5744078, approximate: true, note: "Die Anmeldung enthält keine Hausnummer; der Kartenpunkt liegt nur ungefähr auf dem Mattweg.", noteEn: "The registration has no house number; the map point is only approximate along Mattweg." },
+      { id: 10, names: ["Guettinger"], address: "Neuhofstrasse 36", lat: 47.2020514, lon: 8.5730349 },
+      { id: 11, names: ["Riffel"], address: "Blatt D2, Neuheim", addressEn: "Map sheet D2, Neuheim", lat: 47.2046460, lon: 8.5751134, approximate: true, note: "Öffnungszeit laut Anmeldung: Samstag, 31. Oktober, 17:30–20:00 Uhr. Die Blattangabe erlaubt keine genaue Haustür-Markierung; der Punkt dient nur der Orientierung im Dorf.", noteEn: "Open according to the registration: Saturday, 31 October, 5:30–8:00 pm. The map-sheet reference is not an exact door location; the point is only for general orientation." },
+      { id: 12, names: ["Meier"], address: "Neuhofstrasse 25", lat: 47.2002407, lon: 8.5714727 },
+      { id: 13, names: ["Wesenauer"], address: "Neuhofstrasse 54", lat: 47.2017249, lon: 8.5726713 },
+      { id: 14, names: ["Bucher"], address: "Neuhofstrasse 52", lat: 47.2017128, lon: 8.5728053 },
+      { id: 15, names: ["Balduzzi"], address: "Blatt B1, Neuheim", addressEn: "Map sheet B1, Neuheim", lat: 47.2048, lon: 8.5754, approximate: true, note: "Die Blattangabe erlaubt keine genaue Haustür-Markierung; der Punkt dient nur der Orientierung im Dorf.", noteEn: "The map-sheet reference is not an exact door location; the point is only for general orientation." }
     ];
 
     const list = document.getElementById("host-list");
@@ -1057,7 +1048,7 @@
           note.textContent = noteText;
           details.append(note);
         }
-        if (host.names.length > 1) {
+        if (host.shared) {
           const shared = document.createElement("span");
           shared.className = "host-shared";
           shared.textContent = translations[language].shared;

@@ -103,7 +103,8 @@
       align-items: center;
       justify-content: space-between;
       gap: 28px;
-      min-height: 310px;
+      min-height: 0;
+      aspect-ratio: 2.357 / 1;
       margin-bottom: 20px;
       padding: clamp(22px, 4vw, 42px);
       overflow: hidden;
@@ -111,7 +112,7 @@
       border-radius: 24px;
       background:
         linear-gradient(90deg, rgb(15 17 29 / 83%) 0%, rgb(19 19 30 / 68%) 43%, rgb(20 18 30 / 39%) 100%),
-        url("Gemini_Generated_Image_r7s59er7s59er7s5.jpg") center 53% / cover no-repeat,
+        url("Gemini_Generated_Image_r7s59er7s59er7s5.jpg") center / 100% auto no-repeat,
         linear-gradient(116deg, #241d25, #191d29 63%, #25202a);
       box-shadow: 0 24px 65px rgb(0 0 0 / 22%);
     }
@@ -627,7 +628,7 @@
       .layout { grid-template-columns: 1fr; }
       .map-wrap { aspect-ratio: 1.4 / 1; }
       .host-list { max-height: 420px; }
-      header { grid-template-columns: 1fr; gap: 20px; min-height: 0; }
+      header { grid-template-columns: 1fr; gap: 20px; min-height: 0; aspect-ratio: auto; }
       .hero-brand { width: min(75%, 690px); }
       .event-card { position: relative; top: auto; right: auto; justify-self: start; min-width: 0; padding: 14px 18px; }
       .event-date { white-space: normal; }
@@ -644,6 +645,7 @@
         justify-content: start;
         gap: 16px;
         min-height: 390px;
+        aspect-ratio: auto;
         padding: 20px 16px 110px;
         border-radius: 18px;
         background-image:

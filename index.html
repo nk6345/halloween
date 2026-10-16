@@ -110,24 +110,10 @@
       border: 1px solid #513e39;
       border-radius: 24px;
       background:
-        radial-gradient(ellipse at 90% 15%, rgb(255 139 61 / 18%), transparent 22rem),
-        radial-gradient(ellipse at 3% 100%, rgb(107 76 130 / 18%), transparent 24rem),
+        linear-gradient(90deg, rgb(15 17 29 / 83%) 0%, rgb(19 19 30 / 68%) 43%, rgb(20 18 30 / 39%) 100%),
+        url("Gemini_Generated_Image_r7s59er7s59er7s5.jpg") center 53% / cover no-repeat,
         linear-gradient(116deg, #241d25, #191d29 63%, #25202a);
       box-shadow: 0 24px 65px rgb(0 0 0 / 22%);
-    }
-
-    .hero-art {
-      position: absolute;
-      z-index: 0;
-      right: 1%;
-      bottom: -2px;
-      width: 54%;
-      height: 100%;
-      object-fit: contain;
-      object-position: right bottom;
-      opacity: .84;
-      pointer-events: none;
-      user-select: none;
     }
 
     header::after {
@@ -643,7 +629,6 @@
       .host-list { max-height: 420px; }
       header { grid-template-columns: 1fr; gap: 20px; min-height: 0; }
       .hero-brand { width: min(75%, 690px); }
-      .hero-art { right: 0; width: 58%; opacity: .48; }
       .event-card { position: relative; top: auto; right: auto; justify-self: start; min-width: 0; padding: 14px 18px; }
       .event-date { white-space: normal; }
       .rule-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -654,9 +639,21 @@
       .topline { align-items: flex-start; flex-direction: column; gap: 5px; }
       .brand-line img { width: 38px; height: 38px; }
       .language-toggle { align-self: flex-start; }
-      header { padding: 20px 16px; border-radius: 18px; }
+      header {
+        align-content: start;
+        justify-content: start;
+        gap: 16px;
+        min-height: 390px;
+        padding: 20px 16px 110px;
+        border-radius: 18px;
+        background-image:
+          linear-gradient(180deg, rgb(15 17 29 / 62%) 0%, rgb(19 19 30 / 38%) 48%, rgb(20 18 30 / 18%) 100%),
+          url("Gemini_Generated_Image_r7s59er7s59er7s5.jpg"),
+          linear-gradient(116deg, #241d25, #191d29 63%, #25202a);
+        background-position: center, center bottom, center;
+        background-size: auto, 100% auto, auto;
+      }
       .hero-brand { width: 100%; }
-      .hero-art { right: -24px; width: 78%; height: 78%; opacity: .35; }
       h1 { font-size: clamp(2.3rem, 11vw, 3.4rem); }
       h1 span { margin-top: 7px; font-size: .68rem; letter-spacing: .1em; }
       .intro { font-size: .8rem; }
@@ -680,7 +677,6 @@
       .page { width: 100%; padding: 0; }
       .topline, .stats, .search-wrap { display: none; }
       header, .rules { background: white; box-shadow: none; }
-      .hero-art { opacity: .35; }
       h1, h1 span, .intro, .rule, .rules-heading, .event-date, .event-time { color: #222; }
       .event-card, .rule { border-color: #aaa; }
       .layout { break-before: page; }
@@ -702,7 +698,6 @@
     </div>
 
     <header>
-      <img class="hero-art" src="halloween-scene.svg" alt="" aria-hidden="true">
       <div class="hero-brand">
         <div>
           <h1>Halloween<span data-i18n="subtitle">Die schaurig-schöne Halloween-Karte</span></h1>

@@ -427,13 +427,6 @@
 
     .list-panel .panel-head { padding-bottom: 13px; }
 
-    .route-note {
-      margin: 8px 0 0;
-      color: var(--muted);
-      font-size: .78rem;
-      line-height: 1.5;
-    }
-
     .search-wrap {
       position: relative;
       padding: 0 17px 12px;
@@ -530,12 +523,6 @@
       color: #c6a8ff;
       font-size: .68rem;
       font-weight: 600;
-    }
-
-    .host-shared {
-      color: #bab5a9;
-      font-size: .67rem;
-      font-weight: 500;
     }
 
     .empty { padding: 20px 12px; color: var(--muted); text-align: center; }
@@ -743,7 +730,6 @@
         </div>
         <div class="map-legend">
           <span class="legend-key"><i class="legend-dot"></i> <span data-i18n="legend-host">Gastgeber-Adresse</span></span>
-          <span class="legend-key"><i class="legend-dot approx"></i> <span data-i18n="legend-approx">Lage ungefähr</span></span>
           <span class="legend-key" data-i18n="legend-tap">Markierung antippen für Name und Hinweis</span>
         </div>
       </article>
@@ -753,7 +739,6 @@
           <div>
             <p class="eyebrow" data-i18n="host-eyebrow">Ab dem Windenweg</p>
             <h2 data-i18n="host-title">Gastgeber-Häuser</h2>
-            <p class="route-note" data-i18n="route-note">Besuchsvorschlag: Windenweg → Windenboden → Mattweg → Lindenweg → Dorfzentrum → Zehndermatt → Neuhofstrasse → Hinterburg. Keine geprüfte Fusswegroute; einzelne Standorte sind ungefähr.</p>
           </div>
         </div>
         <label class="search-wrap">
@@ -802,7 +787,6 @@
         "legend-tap": "Markierung antippen für Name und Hinweis",
         "host-eyebrow": "Ab dem Windenweg",
         "host-title": "Gastgeber-Häuser",
-        "route-note": "Besuchsvorschlag: Windenweg → Windenboden → Mattweg → Lindenweg → Dorfzentrum → Zehndermatt → Neuhofstrasse → Hinterburg. Keine geprüfte Fusswegroute; einzelne Standorte sind ungefähr.",
         "search-label": "Name, Strasse oder Hinweis suchen",
         "search-placeholder": "Name, Strasse oder Hinweis suchen…",
         "orientation-title": "Hinweis:",
@@ -814,7 +798,6 @@
         "no-matches": "Keine passende Anmeldung gefunden.",
         approximate: "Lage ungefähr · Adresse bitte bestätigen",
         "address-unspecified": "Adresse bitte bestätigen",
-        shared: "2 Anmeldungen an dieser Adresse",
         "map-approx": "Lage ungefähr",
         "marker-for": "Markierung",
         "approx-suffix": "ungefähr",
@@ -845,7 +828,6 @@
         "legend-tap": "Tap a marker for the name and visit notes",
         "host-eyebrow": "Starting at Windenweg",
         "host-title": "Host homes",
-        "route-note": "Suggested order: Windenweg → Windenboden → Mattweg → Lindenweg → village centre → Zehndermatt → Neuhofstrasse → Hinterburg. Not a verified walking route; some locations are approximate.",
         "search-label": "Search name, street or note",
         "search-placeholder": "Search name, street or note…",
         "orientation-title": "Note:",
@@ -857,7 +839,6 @@
         "no-matches": "No matching registration found.",
         approximate: "Approximate location · please confirm address",
         "address-unspecified": "Please confirm exact address",
-        shared: "2 registrations at this address",
         "map-approx": "Approximate location",
         "marker-for": "Marker",
         "approx-suffix": "approximate",
@@ -876,10 +857,10 @@
       { id: 1, names: ["Lang"], address: "Windenweg 9", lat: 47.2059341, lon: 8.5775462 },
       { id: 2, names: ["Hoffmann"], address: "Windenweg 10", lat: 47.2062249, lon: 8.5787730 },
       { id: 3, names: ["Johnson-Harmsen"], address: "Windenboden 14", lat: 47.2066006, lon: 8.5793563 },
-      { id: 4, names: ["Tribaldos"], address: "Mattweg, ohne Hausnummer", addressEn: "Mattweg, no house number", lat: 47.2068387, lon: 8.5744078, approximate: true, note: "Die Anmeldung enthält keine Hausnummer; der Kartenpunkt liegt nur ungefähr auf dem Mattweg.", noteEn: "The registration has no house number; the map point is only approximate along Mattweg." },
-      { id: 5, names: ["Ladde"], address: "Lindenweg 2", lat: 47.2051299, lon: 8.5740697, shared: true },
-      { id: 6, names: ["Balduzzi"], address: "Blatt B1, Neuheim", addressEn: "Map sheet B1, Neuheim", lat: 47.2048, lon: 8.5754, approximate: true, note: "Die Blattangabe erlaubt keine genaue Haustür-Markierung; der Punkt dient nur der Orientierung im Dorf.", noteEn: "The map-sheet reference is not an exact door location; the point is only for general orientation." },
-      { id: 7, names: ["Riffel"], address: "Blatt D2, Neuheim", addressEn: "Map sheet D2, Neuheim", lat: 47.2046460, lon: 8.5751134, approximate: true, note: "Öffnungszeit laut Anmeldung: Samstag, 31. Oktober, 17:30–20:00 Uhr. Die Blattangabe erlaubt keine genaue Haustür-Markierung; der Punkt dient nur der Orientierung im Dorf.", noteEn: "Open according to the registration: Saturday, 31 October, 5:30–8:00 pm. The map-sheet reference is not an exact door location; the point is only for general orientation." },
+      { id: 4, names: ["Tribaldos"], address: "Mattweg, ohne Hausnummer", addressEn: "Mattweg, no house number", lat: 47.2068387, lon: 8.5744078, approximate: true },
+      { id: 5, names: ["Ladde"], address: "Lindenweg 2", lat: 47.2051299, lon: 8.5740697 },
+      { id: 6, names: ["Balduzzi"], address: "Blatt B1, Neuheim", addressEn: "Map sheet B1, Neuheim", lat: 47.2048, lon: 8.5754, approximate: true },
+      { id: 7, names: ["Riffel"], address: "Blatt D2, Neuheim", addressEn: "Map sheet D2, Neuheim", lat: 47.2046460, lon: 8.5751134, approximate: true },
       { id: 8, names: ["Vinci"], address: "Zehndermattstrasse 7", lat: 47.2039859, lon: 8.5740270 },
       { id: 9, names: ["Guettinger"], address: "Neuhofstrasse 36", lat: 47.2020514, lon: 8.5730349 },
       { id: 10, names: ["Wesenauer"], address: "Neuhofstrasse 54", lat: 47.2017249, lon: 8.5726713 },
@@ -998,8 +979,8 @@
       const bounds = [];
       hosts.forEach((host) => {
         const icon = L.divIcon({
-          className: `leaflet-marker-icon${host.approximate ? " approximate" : ""}`,
-          html: `<span class="map-pin${host.approximate ? " approx" : ""}"><span>${host.id}</span></span>`,
+          className: "leaflet-marker-icon",
+          html: `<span class="map-pin"><span>${host.id}</span></span>`,
           iconSize: [34, 34],
           iconAnchor: [17, 30],
           popupAnchor: [0, -27]
@@ -1033,7 +1014,7 @@
       matches.forEach((host) => {
         const item = document.createElement("button");
         item.type = "button";
-        item.className = `host${host.approximate ? " approx" : ""}`;
+        item.className = "host";
         item.dataset.id = host.id;
         const number = document.createElement("span");
         number.className = "host-number";
@@ -1046,24 +1027,12 @@
         const address = document.createElement("span");
         address.textContent = localizedAddress(host);
         details.append(names, address);
-        if (host.approximate) {
-          const note = document.createElement("span");
-          note.className = "host-note";
-          note.textContent = translations[language].approximate;
-          details.append(note);
-        }
         const noteText = localizedNote(host);
         if (noteText) {
           const note = document.createElement("span");
           note.className = "host-note";
           note.textContent = noteText;
           details.append(note);
-        }
-        if (host.shared) {
-          const shared = document.createElement("span");
-          shared.className = "host-shared";
-          shared.textContent = translations[language].shared;
-          details.append(shared);
         }
         item.append(number, details);
         item.addEventListener("click", () => selectHost(host.id, true));

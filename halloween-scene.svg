@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" fill="none">
+  <defs>
+    <linearGradient id="cape" x1="309" x2="386" y1="223" y2="454" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9756C6"/>
+      <stop offset="1" stop-color="#44265F"/>
+    </linearGradient>
+    <linearGradient id="costume" x1="451" x2="536" y1="236" y2="452" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#438E8A"/>
+      <stop offset="1" stop-color="#244F63"/>
+    </linearGradient>
+    <linearGradient id="pumpkin" x1="540" x2="676" y1="366" y2="476" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFB33F"/>
+      <stop offset="1" stop-color="#ED672E"/>
+    </linearGradient>
+    <linearGradient id="little-pumpkin" x1="672" x2="754" y1="420" y2="482" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFBD4A"/>
+      <stop offset="1" stop-color="#E76B2D"/>
+    </linearGradient>
+    <filter id="shadow" x="125" y="86" width="690" height="442" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="9"/>
+      <feOffset dy="8"/>
+      <feComponentTransfer><feFuncA slope=".28" type="linear"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow" x="613" y="15" width="150" height="150" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="15"/>
+    </filter>
+  </defs>
+
+  <circle cx="686" cy="91" r="54" fill="#F7CB82" fill-opacity=".13" filter="url(#glow)"/>
+  <circle cx="686" cy="91" r="39" fill="#FFE8AC"/>
+  <circle cx="701" cy="77" r="37" fill="#25202A"/>
+
+  <g fill="#181724">
+    <path d="m161 115 12 5 12-5-5 11 6 10-13-5-12 5 5-10-5-11Zm89-47 9 4 9-4-4 8 4 8-9-4-9 4 4-8-4-8Zm412 118 13 5 13-5-6 11 6 12-13-5-13 5 6-12-6-11Z"/>
+    <path d="M454 101c10-11 26-11 36 0-9-3-15 0-18 6-3-6-9-9-18-6Zm27-9 7-14 6 14 14 3-12 7 2 13-10-9-11 6 4-12-10-8 10 0Z"/>
+  </g>
+
+  <g opacity=".58">
+    <path d="M287 473c54-38 100-37 148 0s105 30 156-2 103-33 152 5" stroke="#816579" stroke-linecap="round" stroke-width="3"/>
+    <path d="M445 472c20-28 43-42 67-42 25 0 45 14 61 42M713 465c12-18 25-27 39-27 14 0 25 9 33 27" stroke="#A36B58" stroke-linecap="round" stroke-width="3"/>
+  </g>
+
+  <g filter="url(#shadow)" stroke="#241A28" stroke-linejoin="round" stroke-width="5">
+    <!-- Little witch -->
+    <path d="M266 230c-8-13-9-28-2-42l18-38 23 37c13 5 22 17 24 33l-5 21-51 5-7-16Z" fill="#F0B183"/>
+    <path d="m270 185 13-37 11 23 12-18 17 38-11 9-40-4-2-11Z" fill="#493063"/>
+    <path d="m260 164 62-14-24-12-31 5-7 21Z" fill="#64417D"/>
+    <path d="M271 230c-15 19-23 54-26 113l-17 87c27 26 83 28 115 2l-20-98-2-79c-13-16-32-25-50-25Z" fill="url(#cape)"/>
+    <path d="m253 414-20 23 14 13 27-20m62-8 19 20-15 12-29-19" fill="#F0B183"/>
+    <path d="m273 428-8 38 29 3 9-37m23-2 13 38 27-9-13-39" fill="#2B2238"/>
+    <path d="m265 473 37-1m27-1 38-10" stroke="#E6C08C" stroke-linecap="round" stroke-width="7"/>
+    <path d="M281 218c7 7 18 8 26 1m-20-8 2 1m13-2 2 1" stroke="#59372F" stroke-linecap="round" stroke-width="3"/>
+    <path d="m281 239 14 13 12-15" fill="#F7D25D"/>
+
+    <!-- Little skeleton -->
+    <path d="M433 229c-3-21 10-40 29-43 20-3 38 12 41 33 3 21-10 39-29 42-20 3-38-11-41-32Z" fill="#D9C5A1"/>
+    <path d="m431 242 8-23 12-6 11 12 10-17 20 9 10 26-17 17-41-2-13-16Z" fill="#28253A"/>
+    <path d="M438 259c-18 16-26 50-24 105l-18 81c37 23 100 20 134-8l-29-77 5-76c-18-22-45-34-68-25Z" fill="url(#costume)"/>
+    <path d="m417 289 36 19-37 20m76-35-36 17 42 22" stroke="#D7E4CE" stroke-dasharray="9 8" stroke-linecap="round" stroke-width="8"/>
+    <path d="m410 438-19 13 10 16 30-19m84-4 21 12-9 17-34-15" fill="#D6C6AA"/>
+    <path d="m430 435-5 36 27 5 6-39m19-2 8 38 28-4-9-39" fill="#25253A"/>
+    <path d="m420 476 38 2m27-1 39-6" stroke="#E7D4AC" stroke-linecap="round" stroke-width="7"/>
+    <path d="m448 215 10 7 1 16-10 8-10-7-1-15 10-9Zm29-4 10 7 1 16-10 8-10-7-1-15 10-9Z" fill="#302D42" stroke="#E9DEC8" stroke-width="3"/>
+    <path d="M451 237v13m26-13 2 14m-17-2-1 12m-11 4 2 13m19-14-1 13m-25 6 14 1 12 7-15 1-11-9Z" stroke="#E9DEC8" stroke-linecap="round" stroke-width="3"/>
+  </g>
+
+  <!-- Big grinning pumpkin -->
+  <g stroke="#65321F" stroke-linejoin="round" stroke-width="5">
+    <path d="M606 372c4-18 13-27 24-28l8 25" fill="#64834D"/>
+    <path d="M629 375c20-25 51-21 65 4 24-18 52-6 55 22 23 19 18 56-8 68-26 21-57 16-74 2-21 20-52 16-67-5-28-8-34-41-17-61 0-19 17-32 37-30Z" fill="url(#pumpkin)"/>
+    <path d="M651 413 671 421l-18 14Zm53-2-19 10 18 14Z" fill="#513024" stroke="#513024"/>
+    <path d="M652 449c16-12 39-15 59-3l-11 18-35 2-13-17Z" fill="#513024"/>
+    <path d="m664 447 4 13 9-14 8 14 10-16 7 15" fill="#FFE1A0" stroke="#FFE1A0" stroke-width="2"/>
+    <path d="M631 382c-11 23-10 52 1 77m37-70c-8 25-8 48 1 70m35-70c9 22 10 44 2 66" fill="none" stroke="#CE5C2B" stroke-linecap="round" stroke-width="4"/>
+  </g>
+
+  <!-- Small pumpkin and candy -->
+  <g stroke="#67351F" stroke-linejoin="round" stroke-width="4">
+    <path d="m712 421 7-17 9 14" fill="#67834A"/>
+    <path d="M693 430c10-13 23-11 30 1 13-11 27-3 27 12 11 12 5 31-10 35-14 10-29 6-38-2-12 9-28 4-33-8-14-6-14-24-3-32 5-8 17-12 27-6Z" fill="url(#little-pumpkin)"/>
+    <path d="m704 448 8 4-7 7Zm25 0-8 4 8 7Z" fill="#573022" stroke="#573022" stroke-width="2"/>
+    <path d="M707 464c7 4 14 4 21 0" stroke="#573022" stroke-linecap="round" stroke-width="3"/>
+  </g>
+  <g transform="translate(580 327) rotate(-13)">
+    <path d="m0 9 13-8 13 8-13 8L0 9Zm26 0 13-8 13 8-13 8-13-8Z" fill="#F7D36D"/>
+    <path d="M13 1v16m13-8v16" stroke="#FFF0BB" stroke-width="2"/>
+  </g>
+</svg>

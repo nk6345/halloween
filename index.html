@@ -857,10 +857,10 @@
       { id: 1, names: ["Lang"], address: "Windenweg 9", lat: 47.2059341, lon: 8.5775462 },
       { id: 2, names: ["Hoffmann"], address: "Windenweg 10", lat: 47.2062249, lon: 8.5787730 },
       { id: 3, names: ["Johnson-Harmsen"], address: "Windenboden 14", lat: 47.2066006, lon: 8.5793563 },
-      { id: 4, names: ["Tribaldos"], address: "Mattweg, ohne Hausnummer", addressEn: "Mattweg, no house number", lat: 47.2068387, lon: 8.5744078, approximate: true },
+      { id: 4, names: ["Tribaldos"], address: "Mattweg, ohne Hausnummer", lat: 47.2068387, lon: 8.5744078, approximate: true },
       { id: 5, names: ["Ladde"], address: "Lindenweg 2", lat: 47.2051299, lon: 8.5740697 },
-      { id: 6, names: ["Balduzzi"], address: "Blatt B1, Neuheim", addressEn: "Map sheet B1, Neuheim", lat: 47.2048, lon: 8.5754, approximate: true },
-      { id: 7, names: ["Riffel"], address: "Blatt D2, Neuheim", addressEn: "Map sheet D2, Neuheim", lat: 47.2046460, lon: 8.5751134, approximate: true },
+      { id: 6, names: ["Balduzzi"], address: "Im Blatt B1, Neuheim", lat: 47.2048, lon: 8.5754, approximate: true },
+      { id: 7, names: ["Riffel"], address: "Im Blatt D2, Neuheim", lat: 47.2046460, lon: 8.5751134, approximate: true },
       { id: 8, names: ["Vinci"], address: "Zehndermattstrasse 7", lat: 47.2039859, lon: 8.5740270 },
       { id: 9, names: ["Guettinger"], address: "Neuhofstrasse 36", lat: 47.2020514, lon: 8.5730349 },
       { id: 10, names: ["Wesenauer"], address: "Neuhofstrasse 54", lat: 47.2017249, lon: 8.5726713 },
@@ -895,7 +895,7 @@
     }
 
     function localizedAddress(host) {
-      return language === "en" && host.addressEn ? host.addressEn : host.address;
+      return host.address;
     }
 
     function localizedNote(host) {

@@ -682,7 +682,7 @@
       :root { color-scheme: light; }
       body { background: #fff; color: #222; }
       .page { width: 100%; padding: 0; }
-      .topline, .stats, .search-wrap { display: none; }
+      .topline, .search-wrap { display: none; }
       header, .rules { background: white; box-shadow: none; }
       h1, h1 span, .intro, .rule, .rules-heading, .event-date, .event-time { color: #222; }
       .event-card, .rule { border-color: #aaa; }
@@ -718,8 +718,8 @@
       </div>
     </header>
 
-    <section class="stats" aria-label="Zusammenfassung" data-i18n-aria="summary-label">
-      <div class="stat">🎃 <strong>18</strong> <span data-i18n="registrations">Anmeldungen</span></div>
+    <section class="stats" aria-label="Anzahl der Gastgeberhäuser">
+      <div class="stat">🎃 <strong id="host-count">16</strong> <span data-i18n="host-houses-count">Gastgeberhäuser</span></div>
     </section>
 
     <section class="rules" aria-labelledby="rules-title">
@@ -789,7 +789,8 @@
         "event-label": "Die Jagdzeit",
         "event-date": "Samstag, 31. Oktober 2026",
         "event-time": "17.30 – 20.00 Uhr",
-        registrations: "Anmeldungen",
+        "host-houses-count": "Gastgeberhäuser",
+        "host-count-label": "Anzahl der Gastgeberhäuser",
         "rules-title": "Gut zu wissen",
         "rule-houses": "Besucht nur die Häuser, die auf der Gastgeber-Karte stehen.",
         "rule-food": "Stärkt euch zu Hause bevor ihr auf die Jagd geht.",
@@ -819,7 +820,6 @@
         "approx-suffix": "ungefähr",
         "map-label": "Echte Strassenkarte von Neuheim mit markierten Gastgeber-Adressen",
         "logo-alt": "Familientreff Neuheim Logo",
-        "summary-label": "Zusammenfassung",
         "event-card-label": "Anlassdatum und Zeit",
         "map-attribution": "OpenStreetMap-Mitwirkende"
       },
@@ -830,7 +830,8 @@
         "event-label": "Trick-or-treat time",
         "event-date": "Saturday, 31 October 2026",
         "event-time": "5:30–8:00 pm",
-        registrations: "registrations",
+        "host-houses-count": "Host homes",
+        "host-count-label": "Number of host homes",
         "rules-title": "Good to know",
         "rule-houses": "Only visit the homes shown on the host map.",
         "rule-food": "Have something to eat at home before setting off.",
@@ -860,7 +861,6 @@
         "approx-suffix": "approximate",
         "map-label": "Real street map of Neuheim with marked host addresses",
         "logo-alt": "Familientreff Neuheim logo",
-        "summary-label": "Event summary",
         "event-card-label": "Event date and time",
         "map-attribution": "OpenStreetMap contributors"
       }
@@ -887,6 +887,7 @@
       { id: 15, names: ["Franco"], address: "Edlibachstrasse 6", lat: 47.1991024, lon: 8.5734774, note: "Ganz oben im 3. Stock. Bei «Franco» oder «de Bastos» klingeln. Ein Lift ist vorhanden.", noteEn: "At the top, on the third floor. Ring «Franco» or «de Bastos». An elevator is available." },
       { id: 16, names: ["Fochini"], address: "Hinterburgstrasse 46", lat: 47.1959340, lon: 8.5715621 }
     ];
+    document.getElementById("host-count").textContent = hosts.length;
 
     const list = document.getElementById("host-list");
     const search = document.getElementById("search");
@@ -936,8 +937,8 @@
       );
       document.getElementById("search").placeholder = strings["search-placeholder"];
       document.getElementById("search-label").textContent = strings["search-label"];
+      document.querySelector(".stats").setAttribute("aria-label", strings["host-count-label"]);
       document.getElementById("map").setAttribute("aria-label", strings["map-label"]);
-      document.querySelector(".stats").setAttribute("aria-label", strings["summary-label"]);
       document.querySelector(".event-card").setAttribute("aria-label", strings["event-card-label"]);
       mapError.textContent = strings["map-error"];
       if (map && baseLayer) {

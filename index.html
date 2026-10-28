@@ -719,7 +719,7 @@
     </header>
 
     <section class="stats" aria-label="Anzahl der Gastgeberhäuser">
-      <div class="stat">🎃 <strong id="host-count">20</strong> <span data-i18n="host-houses-count">Gastgeberhäuser</span></div>
+      <div class="stat">🎃 <strong id="host-count">24</strong> <span data-i18n="host-houses-count">Gastgeberhäuser</span></div>
     </section>
 
     <section class="rules" aria-labelledby="rules-title">
@@ -872,24 +872,28 @@
     const hosts = [
       { id: 1, names: ["Lang"], address: "Windenweg 9", lat: 47.2059341, lon: 8.5775462 },
       { id: 2, names: ["Hoffmann"], address: "Windenweg 10", lat: 47.2062249, lon: 8.5787730 },
-      { id: 3, names: ["Johnson-Harmsen"], address: "Windenboden 14", lat: 47.2066006, lon: 8.5793563 },
-      { id: 4, names: ["Horvath-Hristov"], address: "Maiackerstrasse 29", lat: 47.2065004, lon: 8.5743545 },
-      { id: 5, names: ["Gysi"], address: "Obere Rainstrasse 60", lat: 47.2063350, lon: 8.5813058, markerOffset: -15, note: "Süssigkeiten im 1. Stock links.", noteEn: "Sweets on the first floor, on the left." },
-      { id: 6, names: ["Fraser"], address: "Obere Rainstrasse 60", lat: 47.2063350, lon: 8.5813058, markerOffset: 15, note: "1. Stock", noteEn: "First floor" },
-      { id: 7, names: ["Martucci"], address: "Säntisstrasse 16a", lat: 47.2066703, lon: 8.5771395 },
-      { id: 8, names: ["Ladde"], address: "Lindenweg 2", lat: 47.2051299, lon: 8.5740697 },
-      { id: 9, names: ["Riffel"], address: "Im Blatt D2, Neuheim", lat: 47.2046460, lon: 8.5751134, approximate: true },
-      { id: 10, names: ["von Arx"], address: "Obere Rainstrasse 4c", lat: 47.2036590, lon: 8.5761157 },
-      { id: 11, names: ["Schilliger & Baldelli"], address: "Neuhofstrasse 6", lat: 47.2027606, lon: 8.5739431 },
-      { id: 12, names: ["Guettinger"], address: "Neuhofstrasse 36", lat: 47.2020514, lon: 8.5730349 },
-      { id: 13, names: ["Lüscher"], address: "Neuhofstrasse 42", lat: 47.2023940, lon: 8.5729428 },
-      { id: 14, names: ["Bissig"], address: "Neuhofstrasse 56", lat: 47.2017629, lon: 8.5724505 },
-      { id: 15, names: ["Wesenauer"], address: "Neuhofstrasse 54", lat: 47.2017249, lon: 8.5726713 },
-      { id: 16, names: ["Bucher"], address: "Neuhofstrasse 52", lat: 47.2017128, lon: 8.5728053 },
-      { id: 17, names: ["Peter"], address: "Neuhofstrasse 17", lat: 47.2011264, lon: 8.5730251 },
-      { id: 18, names: ["Meier"], address: "Neuhofstrasse 25", lat: 47.2002407, lon: 8.5714727, note: "Am Eingang klingeln, mit dem Aufzug in den 3. Stock fahren und bei «Meier» klingeln.", noteEn: "Ring the doorbell at the entrance, take the elevator to the third floor, and ring «Meier»." },
-      { id: 19, names: ["Franco"], address: "Edlibachstrasse 6", lat: 47.1991024, lon: 8.5734774, note: "Ganz oben im 3. Stock. Bei «Franco» oder «de Bastos» klingeln. Ein Lift ist vorhanden.", noteEn: "At the top, on the third floor. Ring «Franco» or «de Bastos». An elevator is available." },
-      { id: 20, names: ["Fochini"], address: "Hinterburgstrasse 46", lat: 47.1959340, lon: 8.5715621 }
+      { id: 3, names: ["Marshall"], address: "Windenboden 2", lat: 47.2066432, lon: 8.5783058, note: "Gruselzelt im Hof bei Haus Windenboden 2-9.", noteEn: "Haunted tent in the courtyard by house Windenboden 2-9." },
+      { id: 4, names: ["Johnson-Harmsen"], address: "Windenboden 14", lat: 47.2066006, lon: 8.5793563 },
+      { id: 5, names: ["Horvath-Hristov"], address: "Maiackerstrasse 29", lat: 47.2065004, lon: 8.5743545 },
+      { id: 6, names: ["Zarate Papaiani"], address: "Chilemattweg 5", lat: 47.2058069, lon: 8.5761293 },
+      { id: 7, names: ["Gysi"], address: "Obere Rainstrasse 60", lat: 47.2063350, lon: 8.5813058, markerOffset: -15, note: "Süssigkeiten im 1. Stock links.", noteEn: "Sweets on the first floor, on the left." },
+      { id: 8, names: ["Fraser"], address: "Obere Rainstrasse 60", lat: 47.2063350, lon: 8.5813058, markerOffset: 15, note: "1. Stock", noteEn: "First floor" },
+      { id: 9, names: ["Fischer"], address: "Obere Rainstrasse 36", lat: 47.2052478, lon: 8.5800950 },
+      { id: 10, names: ["Martucci"], address: "Säntisstrasse 16a", lat: 47.2066703, lon: 8.5771395 },
+      { id: 11, names: ["Riffel"], address: "Im Blatt D2, Neuheim", lat: 47.2046460, lon: 8.5751134, approximate: true },
+      { id: 12, names: ["von Arx"], address: "Obere Rainstrasse 4c", lat: 47.2036590, lon: 8.5761157 },
+      { id: 13, names: ["Schilliger & Baldelli"], address: "Neuhofstrasse 6", lat: 47.2027606, lon: 8.5739431 },
+      { id: 14, names: ["Guettinger"], address: "Neuhofstrasse 36", lat: 47.2020514, lon: 8.5730349 },
+      { id: 15, names: ["Annen"], address: "Neuhofstrasse 38", lat: 47.2020618, lon: 8.5730025 },
+      { id: 16, names: ["Lüscher"], address: "Neuhofstrasse 42", lat: 47.2023940, lon: 8.5729428 },
+      { id: 17, names: ["Bissig"], address: "Neuhofstrasse 56", lat: 47.2017629, lon: 8.5724505 },
+      { id: 18, names: ["Wesenauer"], address: "Neuhofstrasse 54", lat: 47.2017249, lon: 8.5726713 },
+      { id: 19, names: ["Bucher"], address: "Neuhofstrasse 52", lat: 47.2017128, lon: 8.5728053 },
+      { id: 20, names: ["Peter"], address: "Neuhofstrasse 17", lat: 47.2011264, lon: 8.5730251 },
+      { id: 21, names: ["Schicker"], address: "Neuhofstrasse 19", lat: 47.2009556, lon: 8.5727809 },
+      { id: 22, names: ["Meier"], address: "Neuhofstrasse 25", lat: 47.2002407, lon: 8.5714727, note: "Am Eingang klingeln, mit dem Aufzug in den 3. Stock fahren und bei «Meier» klingeln.", noteEn: "Ring the doorbell at the entrance, take the elevator to the third floor, and ring «Meier»." },
+      { id: 23, names: ["Franco"], address: "Edlibachstrasse 6", lat: 47.1991024, lon: 8.5734774, note: "Ganz oben im 3. Stock. Bei «Franco» oder «de Bastos» klingeln. Ein Lift ist vorhanden.", noteEn: "At the top, on the third floor. Ring «Franco» or «de Bastos». An elevator is available." },
+      { id: 24, names: ["Fochini"], address: "Hinterburgstrasse 46", lat: 47.1959340, lon: 8.5715621 }
     ];
     document.getElementById("host-count").textContent = hosts.length;
 

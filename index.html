@@ -356,6 +356,36 @@
       white-space: nowrap;
     }
 
+    .map-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      padding: 0 15px 12px;
+    }
+
+    .action-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 9px 12px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel-soft);
+      color: var(--ink);
+      cursor: pointer;
+      font-size: .85rem;
+      letter-spacing: 0;
+    }
+
+    .action-button:hover, .action-button:focus-visible { border-color: var(--orange-light); }
+    .action-button[aria-pressed="true"] { border-color: #69b8ff; color: #b6dcff; }
+    .action-button:disabled { opacity: .5; cursor: not-allowed; }
+    .location-status { flex: 1 1 220px; margin: 0; color: var(--muted); font-size: .8rem; }
+    .print-addresses { display: none; }
+
     .map-wrap {
       margin: 0 12px;
       overflow: hidden;
@@ -678,6 +708,8 @@
       .homepage-link { grid-column: 1 / -1; justify-self: stretch; }
     }
 
+    @page { size: A4; margin: 15mm; }
+
     @media print {
       :root { color-scheme: light; }
       body { background: #fff; color: #222; }
@@ -694,6 +726,15 @@
       .host-list { max-height: none; overflow: visible; }
       .map-wrap { min-height: 450px; }
       .host { break-inside: avoid; }
+      .page { display: none; }
+      .print-addresses { display: block; color: #111; font: 10pt/1.35 "Segoe UI", sans-serif; }
+      .print-addresses h1 { color: #111; font: bold 20pt Georgia, serif; letter-spacing: 0; text-shadow: none; }
+      .print-addresses h2 { margin: 14pt 0 8pt; font-size: 13pt; }
+      .print-addresses table { width: 100%; border-collapse: collapse; }
+      .print-addresses th, .print-addresses td { padding: 6pt 5pt; border-bottom: 1px solid #bbb; text-align: left; vertical-align: top; }
+      .print-addresses thead { display: table-header-group; }
+      .print-addresses tr { break-inside: avoid; }
+      .print-addresses small { display: block; margin-top: 3pt; font-size: 9pt; }
     }
   </style>
 </head>
@@ -741,6 +782,15 @@
           </div>
           <span class="map-tag" data-i18n="map-tag">✦ Made with OpenStreetMap</span>
         </div>
+        <div class="map-actions">
+          <button id="location-toggle" class="action-button" type="button" aria-pressed="false" aria-describedby="location-status">
+            <span aria-hidden="true">&#8982;</span><span id="location-label">Mein Standort</span>
+          </button>
+          <button id="print-addresses" class="action-button" type="button">
+            <span aria-hidden="true">&#128424;</span><span data-i18n="print-button">Print @ Home / PDF</span>
+          </button>
+          <p id="location-status" class="location-status" role="status" aria-live="polite"></p>
+        </div>
         <div class="map-wrap" id="map" role="application" aria-label="Echte Strassenkarte von Neuheim mit markierten Gastgeber-Adressen">
           <div id="map-error" class="map-error" hidden></div>
         </div>
@@ -777,6 +827,7 @@
       <a class="homepage-link" href="https://www.fgneuheim.ch/veranstaltungen26/familientreff26" target="_blank" rel="noopener noreferrer" data-i18n="homepage-link">Alle Veranstaltungen entdecken</a>
     </section>
   </main>
+  <section id="print-content" class="print-addresses" aria-label="Adressliste"></section>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <script>
@@ -798,6 +849,20 @@
         "rule-litter": "Eltern & Kinder: Gemeinsam halten wir Neuheim sauber.",
         "event-footnote": "Für Neuheimer Kinder · Die Gastgeber freuen sich auf euren Besuch zwischen 17.30 und 20.00 Uhr.",
         "map-eyebrow": "Halloween Karte",
+        "print-button": "Print @ Home / PDF",
+        "print-number": "Nr.",
+        "print-name": "Gastgeber",
+        "print-address": "Adresse / Besuchshinweise",
+        "print-note": "Einzelne Standorte sind ungefähr. Die Nummern entsprechen den Kartenmarkierungen, nicht einer geprüften Fusswegroute.",
+        "location-start": "Mein Standort",
+        "location-stop": "Standort ausschalten",
+        "location-waiting": "Standort wird ermittelt ...",
+        "location-active": "Blauer Punkt: dein Standort. Genauigkeit ca. {meters} m.",
+        "location-denied": "Standortfreigabe verweigert. Erlaube den Standortzugriff in den Browser-Einstellungen und versuche es erneut.",
+        "location-unavailable": "Standort derzeit nicht verfügbar. Bitte erneut versuchen.",
+        "location-timeout": "Standortabfrage hat zu lange gedauert. Bitte erneut versuchen.",
+        "location-unsupported": "Standortanzeige wird von diesem Browser nicht unterstützt.",
+        "location-insecure": "Die Standortanzeige benötigt HTTPS. Bitte die veröffentlichte Karte öffnen.",
         "map-tag": "✦ Made with OpenStreetMap",
         "legend-host": "Gastgeber-Adresse",
         "legend-approx": "Lage ungefähr",
@@ -838,6 +903,20 @@
         "rule-litter": "Parents & children: Let's keep Neuheim clean together.",
         "event-footnote": "For children from Neuheim · Hosts look forward to welcoming you between 5:30 and 8:00 pm.",
         "map-eyebrow": "Halloween Map",
+        "print-button": "Print @ Home / PDF",
+        "print-number": "No.",
+        "print-name": "Host",
+        "print-address": "Address / Visit notes",
+        "print-note": "Some locations are approximate. Numbers match the map markers, not a verified walking route.",
+        "location-start": "My location",
+        "location-stop": "Turn location off",
+        "location-waiting": "Finding your location ...",
+        "location-active": "Blue dot: your location. Accuracy approx. {meters} m.",
+        "location-denied": "Location permission denied. Allow location access in your browser settings and try again.",
+        "location-unavailable": "Location is currently unavailable. Please try again.",
+        "location-timeout": "Location request timed out. Please try again.",
+        "location-unsupported": "This browser does not support location services.",
+        "location-insecure": "Location requires HTTPS. Please open the published map.",
         "map-tag": "✦ Made with OpenStreetMap",
         "legend-host": "Host address",
         "legend-approx": "Approximate location",
@@ -907,6 +986,14 @@
     let currentMapAttribution = "";
     const markers = new Map();
     let selectedId = null;
+    const locationToggle = document.getElementById("location-toggle");
+    let locationWatch = null;
+    let locationMarker = null;
+    let accuracyCircle = null;
+    let locationState = "";
+    let locationAccuracy = 0;
+    let centerOnLocation = false;
+    locationToggle.disabled = !map;
 
     if (map) {
       mapError.remove();
@@ -951,6 +1038,8 @@
       document.getElementById("map").setAttribute("aria-label", strings["map-label"]);
       document.querySelector(".event-card").setAttribute("aria-label", strings["event-card-label"]);
       mapError.textContent = strings["map-error"];
+      updateLocationText();
+      renderPrintAddresses();
       if (map && baseLayer) {
         if (currentMapAttribution) map.attributionControl.removeAttribution(currentMapAttribution);
         currentMapAttribution = `<span class="map-attribution">© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">${strings["map-attribution"]}</a></span>`;
@@ -963,6 +1052,106 @@
         marker.options.title = `${localizedNames(host).join(" & ")} · ${localizedAddress(host)}`;
         marker.setPopupContent(makePopup(host));
       });
+    }
+
+    function updateLocationText() {
+      const strings = translations[language];
+      document.getElementById("location-label").textContent = strings[locationWatch === null ? "location-start" : "location-stop"];
+      locationToggle.setAttribute("aria-pressed", String(locationWatch !== null));
+      const status = locationState ? strings[locationState].replace("{meters}", locationAccuracy) : "";
+      document.getElementById("location-status").textContent = status;
+      if (locationMarker) locationMarker.setTooltipContent(status);
+    }
+
+    function stopLocation() {
+      if (locationWatch !== null) navigator.geolocation.clearWatch(locationWatch);
+      locationWatch = null;
+      if (locationMarker) map.removeLayer(locationMarker);
+      if (accuracyCircle) map.removeLayer(accuracyCircle);
+      locationMarker = null;
+      accuracyCircle = null;
+      locationState = "";
+      updateLocationText();
+    }
+
+    function toggleLocation() {
+      if (!map) return;
+      if (locationWatch !== null) {
+        stopLocation();
+        return;
+      }
+      if (!window.isSecureContext || !navigator.geolocation) {
+        locationState = !window.isSecureContext ? "location-insecure" : "location-unsupported";
+        updateLocationText();
+        return;
+      }
+      locationState = "location-waiting";
+      centerOnLocation = true;
+      try {
+        locationWatch = navigator.geolocation.watchPosition((position) => {
+          const point = [position.coords.latitude, position.coords.longitude];
+          locationAccuracy = Math.round(position.coords.accuracy);
+          if (!locationMarker) {
+            accuracyCircle = L.circle(point, { radius: position.coords.accuracy, color: "#1674d1", weight: 1, fillOpacity: .1, interactive: false }).addTo(map);
+            locationMarker = L.circleMarker(point, { radius: 8, color: "#fff", weight: 3, fillColor: "#1674d1", fillOpacity: 1 }).addTo(map).bindTooltip("");
+          } else {
+            locationMarker.setLatLng(point);
+            accuracyCircle.setLatLng(point).setRadius(position.coords.accuracy);
+          }
+          locationMarker.bringToFront();
+          locationState = "location-active";
+          updateLocationText();
+          if (centerOnLocation) {
+            map.setView(point, Math.max(map.getZoom(), 16));
+            centerOnLocation = false;
+          }
+        }, (error) => {
+          stopLocation();
+          locationState = error.code === 1 ? "location-denied" : error.code === 3 ? "location-timeout" : "location-unavailable";
+          updateLocationText();
+        }, { enableHighAccuracy: true, maximumAge: 10000, timeout: 20000 });
+      } catch {
+        stopLocation();
+        locationState = "location-unavailable";
+      }
+      updateLocationText();
+    }
+
+    function renderPrintAddresses() {
+      const strings = translations[language];
+      const content = document.getElementById("print-content");
+      content.setAttribute("aria-label", strings["host-title"]);
+      content.replaceChildren();
+      const title = document.createElement("h1");
+      title.textContent = "Halloween in Neuheim";
+      const event = document.createElement("p");
+      event.textContent = `${strings.presented} · ${strings["event-date"]} · ${strings["event-time"]}`;
+      const heading = document.createElement("h2");
+      heading.textContent = `${strings["host-title"]} (${hosts.length})`;
+      const table = document.createElement("table");
+      const header = table.createTHead().insertRow();
+      ["print-number", "print-name", "print-address"].forEach((key) => {
+        const cell = document.createElement("th");
+        cell.scope = "col";
+        cell.textContent = strings[key];
+        header.append(cell);
+      });
+      const body = table.createTBody();
+      hosts.forEach((host) => {
+        const row = body.insertRow();
+        row.insertCell().textContent = host.id;
+        row.insertCell().textContent = localizedNames(host).join(" & ");
+        const address = row.insertCell();
+        address.textContent = localizedAddress(host);
+        if (localizedNote(host)) {
+          const note = document.createElement("small");
+          note.textContent = localizedNote(host);
+          address.append(note);
+        }
+      });
+      const note = document.createElement("p");
+      note.textContent = strings["print-note"];
+      content.append(title, event, heading, table, note);
     }
 
     function makePopup(host) {
@@ -1081,6 +1270,10 @@
       applyLanguage();
     });
     search.addEventListener("input", renderList);
+    locationToggle.addEventListener("click", toggleLocation);
+    document.getElementById("print-addresses").addEventListener("click", () => window.print());
+    window.addEventListener("beforeprint", renderPrintAddresses);
+    window.addEventListener("pagehide", stopLocation);
     if (map) window.addEventListener("resize", () => map.invalidateSize());
   </script>
 </body>
